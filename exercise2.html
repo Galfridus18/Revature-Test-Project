@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        div{
+            width: 300px;
+            height: 300px;
+            border: 2px solid black;
+            display: inline-block;
+        }
+        
+    </style>
+
+
+
+</head>
+
+<body>
+      
+
+      <h1>Drag each player's image to a team</h1>
+
+      <table>
+            <tr>
+            <td>
+                
+                <div id="div1"
+                ondrop="drop(event)"
+                ondragover="allowDrop(event)"> Team A
+              </div>
+            </td>
+            <td>
+
+                <div id="div2"
+                ondrop="drop(event)"
+                ondragover="allowDrop(event)"> Team B
+              </div>
+
+            </td>
+            <td>
+
+                <div id="div3"
+                ondrop="drop(event)"
+                ondragover="allowDrop(event)"> Team C
+              </div>
+
+            </td>
+            <td>
+                <div id="div4"
+                ondrop="drop(event)"
+                ondragover="allowDrop(event)"> Team D
+              </div>
+            </td>
+            </tr>
+      </table>
+
+
+            <br>
+            <img id="img1"
+                 src="images/chao.png"
+                 draggable="true"
+                 ondragstart="drag(event)"
+                 width="250"
+                 height="200">
+
+
+
+            <br>
+            <img id="img2"
+                 src="images/sonic.jpg"
+                 draggable="true"
+                 ondragstart="drag(event)"
+                 width="250"
+                 height="200">
+
+
+   
+               <br>
+               <img id="img3"
+                    src="images/mario.png"
+                    draggable="true"
+                    ondragstart="drag(event)"
+                    width="250"
+                    height="200">
+
+                <br>
+
+                <img id="img4"
+                    src="images/toad.png"
+                    draggable="true"
+                    ondragstart="drag(event)"
+                    width="250"
+                    height="200">
+
+        <script>
+
+            function allowDrop(event){
+            event.preventDefault()
+            }
+            
+            function drag(event){
+            var id = event.target.id;
+            event.dataTransfer.setData('text', event.target.id);
+            }
+            
+            function drop(event){
+            event.preventDefault();
+            var fetchData = event.dataTransfer.getData("text");
+            event.target.appendChild(document.getElementById(fetchData));
+            }
+            
+        </script>
+    
+
+</body>
+</html>
